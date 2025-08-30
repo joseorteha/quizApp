@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Terminal, { TerminalLine, TerminalPrompt, TerminalOutput, TerminalInput } from './Terminal';
 import { generateQuizFeedback, generateQuizSet, QUIZ_CATEGORIES, QuizQuestion } from '../utils/huggingface';
+import ModernButton from './ModernButton';
 
 // Fallback para QUIZ_CATEGORIES si no se importa correctamente
 const FALLBACK_CATEGORIES = [
@@ -50,8 +51,6 @@ const Quiz: React.FC = () => {
         categories = [category];
       }
       
-      console.log('Generando preguntas para categorías:', categories);
-      
       // Mostrar mensaje de carga
       addToTerminalHistory(
         <TerminalLine>
@@ -69,7 +68,6 @@ const Quiz: React.FC = () => {
       clearTerminalAndShowQuestion(0, generatedQuestions[0]);
       
     } catch (error) {
-      console.error('Error generando preguntas:', error);
       addToTerminalHistory(
         <>
           <TerminalLine>
@@ -272,7 +270,7 @@ const Quiz: React.FC = () => {
         <>
           <TerminalLine>
             <TerminalOutput type="info">
-              🎯 Bienvenido al Quiz Terminal Dinámico 🎯
+              🎯 Bienvenido al Quiz AI Inteligente 🎯
             </TerminalOutput>
           </TerminalLine>
           <TerminalLine>
@@ -282,7 +280,7 @@ const Quiz: React.FC = () => {
           </TerminalLine>
           <TerminalLine>
             <TerminalOutput type="warning">
-              Las preguntas se generan dinámicamente usando IA (GPT-2).
+              Las preguntas se generan dinámicamente usando Inteligencia Artificial.
             </TerminalOutput>
           </TerminalLine>
         </>
@@ -321,45 +319,15 @@ const Quiz: React.FC = () => {
               </div>
               
               <div className="quiz-controls">
-                <button
-                  className="quiz-button quiz-button-primary"
+                <ModernButton
+                  variant="primary"
                   onClick={() => generateQuestions(selectedCategory)}
                   disabled={loading}
+                  loading={loading}
+                  icon="🚀"
                 >
                   {loading ? 'Generando preguntas...' : `Comenzar Quiz (${selectedCategory})`}
-                </button>
-                
-                <button
-                  className="quiz-button"
-                  onClick={async () => {
-                    console.log('🧪 Testing Google Gemini API...');
-                    try {
-                      const response = await fetch('/api/gemini', {
-                        method: 'POST',
-                        headers: {
-                          'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                          prompt: 'Genera una pregunta simple de geografía sobre capitales',
-                          maxTokens: 100,
-                          temperature: 0.7
-                        })
-                      });
-                      const result = await response.json();
-                      
-                      if (result.success) {
-                        alert(`✅ Google Gemini funciona perfectamente!\n\nModelo: ${result.model}\nProveedor: ${result.provider}\n\nRespuesta:\n${result.text}`);
-                      } else {
-                        alert(`❌ Google Gemini no funciona.\nMotivo: ${result.message}\n\nUsando preguntas predefinidas de alta calidad.`);
-                      }
-                    } catch (error) {
-                      alert('❌ Error al probar Google Gemini API. Usando preguntas predefinidas.');
-                    }
-                  }}
-                  disabled={loading}
-                >
-                  🧪 Test Google Gemini
-                </button>
+                </ModernButton>
               </div>
             </div>
           </div>
@@ -396,12 +364,13 @@ const Quiz: React.FC = () => {
             
             {answerRevealed && !loading && (
               <div className="quiz-controls">
-                <button 
-                  className="quiz-button quiz-button-primary"
+                <ModernButton 
+                  variant="primary"
                   onClick={handleNextQuestion}
+                  icon={currentQuestionIndex < questions.length - 1 ? "▶️" : "🎯"}
                 >
                   {currentQuestionIndex < questions.length - 1 ? 'Siguiente Pregunta' : 'Ver Resultados'}
-                </button>
+                </ModernButton>
               </div>
             )}
             
@@ -421,12 +390,13 @@ const Quiz: React.FC = () => {
         return (
           <div className="quiz-completed">
             <div className="quiz-controls">
-              <button 
-                className="quiz-button quiz-button-primary"
+              <ModernButton 
+                variant="primary"
                 onClick={resetQuiz}
+                icon="🔄"
               >
-                🔄 Nuevo Quiz
-              </button>
+                Nuevo Quiz
+              </ModernButton>
             </div>
           </div>
         );

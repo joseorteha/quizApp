@@ -11,9 +11,16 @@
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "@huggingface/inference": "^4.7.1",
+    "@tsparticles/basic": "^3.9.1",
+    "@tsparticles/engine": "^3.9.1",
+    "@tsparticles/react": "^3.0.0",
+    "framer-motion": "^12.23.12",
     "next": "15.5.2",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "react-particles": "^2.12.2",
+    "tsparticles": "^3.9.1",
+    "tsparticles-engine": "^2.12.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

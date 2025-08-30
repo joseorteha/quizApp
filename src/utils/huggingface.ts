@@ -28,8 +28,6 @@ export interface QuizQuestion {
  */
 export async function generateText(prompt: string, maxTokens: number = 100, temperature: number = 0.7): Promise<string> {
   try {
-    console.log('🚀 Attempting to use Google Gemini first...');
-    
     // Intentar primero con Google Gemini
     const geminiResponse = await fetch('/api/gemini', {
       method: 'POST',
@@ -46,10 +44,7 @@ export async function generateText(prompt: string, maxTokens: number = 100, temp
     const geminiData = await geminiResponse.json();
     
     if (geminiData.success) {
-      console.log(`✅ Generated text using Google Gemini: ${geminiData.model}`);
       return geminiData.text;
-    } else {
-      console.log('❌ Google Gemini failed, trying Hugging Face fallback...');
     }
     
     // Si Gemini falla, intentar con Hugging Face
@@ -68,15 +63,12 @@ export async function generateText(prompt: string, maxTokens: number = 100, temp
     const hfData = await hfResponse.json();
     
     if (hfData.success) {
-      console.log(`✅ Generated text using Hugging Face: ${hfData.model}`);
       return hfData.text;
     } else {
-      console.log('❌ Both APIs failed, using local fallback');
       return generarRespuestaFallback(prompt);
     }
     
   } catch (error) {
-    console.error('Error calling AI APIs:', error);
     return generarRespuestaFallback(prompt);
   }
 }
