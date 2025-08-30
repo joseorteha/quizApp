@@ -1,236 +1,308 @@
-# 🎯 Quiz Terminal App con IA
+# 🎯 Quiz Terminal App
 
-Una aplicación de quiz interactiva con estilo de terminal que genera preguntas dinámicamente usando **Google Gemini AI** y Hugging Face como fallback.
+## 🚀 Una Experiencia de Quiz Interactiva con Estilo Terminal Matrix
 
-![Quiz Terminal App](https://img.shields.io/badge/Next.js-15.5.2-black?style=for-the-badge&logo=next.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)
-![Google Gemini](https://img.shields.io/badge/Google_Gemini-AI-4285F4?style=for-the-badge&logo=google)
+[![Next.js](https://img.shields.io/badge/Next.js-15.5.2-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-18.0-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://reactjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Google Gemini](https://img.shields.io/badge/Google-Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
 
-## ✨ Características Principales
-
-### 🤖 Preguntas Dinámicas con IA
-- **Generación automática** de preguntas usando **Google Gemini AI** (principal)
-- **Fallback robusto** con Hugging Face y preguntas predefinidas
-- **10 categorías** diferentes: Programación, Historia, Ciencia, Geografía, Arte, Deportes, Tecnología, Música, Cine, Literatura
-- **Modo mixto** que combina todas las categorías
-- **Respuestas explicadas** por IA para cada pregunta
-- **Preguntas de nivel profesional** - complejas y educativas
-
-### 🎮 Experiencia de Usuario Mejorada
-- **Interfaz de terminal** auténtica con colores y animaciones
-- **Navegación limpia** - cada pregunta es una nueva "sesión"
-- **Sistema de progreso** visual con barra de progreso
-- **Límite de 10 preguntas** por quiz para mantener la atención
-- **Puntuación en tiempo real** con mensajes personalizados
-
-### 🎨 Diseño y UX
-- **Estilo terminal retro** con colores verdes y efectos de typing
-- **Animaciones suaves** entre preguntas
-- **Responsive design** que funciona en móviles y desktop
-- **Selector de categorías** visual con emojis
-- **Feedback inmediato** con colores para respuestas correctas/incorrectas
-
-## 🚀 Instalación y Configuración
-
-### Requisitos Previos
-- Node.js 18+ 
-- npm o yarn
-- **Google Gemini API Key** (requerida - gratuita)
-- Cuenta en Hugging Face (opcional, para fallback)
-
-### Pasos de Instalación
-
-1. **Clonar el repositorio**
-```bash
-git clone https://github.com/joseorteha/quizApp.git
-cd quizApp
-```
-
-2. **Instalar dependencias**
-```bash
-npm install
-```
-
-3. **Configurar variables de entorno**
-```bash
-# Copiar el archivo de ejemplo
-copy .env.example .env.local
-
-# Editar .env.local y agregar tus API keys
-# REQUERIDO: Google Gemini API Key
-GOOGLE_GEMINI_API_KEY=tu_google_gemini_api_key
-
-# OPCIONAL: Hugging Face API Key (para fallback)
-HUGGING_FACE_API_KEY=tu_hugging_face_api_key
-```
-
-#### 🔑 Obtener API Keys:
-
-**Google Gemini (GRATIS - Requerida):**
-1. Ve a [Google AI Studio](https://ai.google.dev/)
-2. Inicia sesión con tu cuenta Google
-3. Haz clic en "Get API Key"
-4. Copia la key y pégala en `.env.local`
-
-**Hugging Face (GRATIS - Opcional):**
-1. Ve a [Hugging Face](https://huggingface.co/settings/tokens)
-2. Crea una cuenta gratuita
-3. Genera un token de acceso
-4. Copia la key y pégala en `.env.local`
-
-4. **Ejecutar en modo desarrollo**
-```bash
-npm run dev
-```
-
-5. **Abrir en el navegador**
-```
-http://localhost:3000
-```
-
-## 🎯 Cómo Usar
-
-### Inicio del Quiz
-1. **Selecciona una categoría** de las 10 disponibles o elige "Mixto"
-2. **Haz clic en "Comenzar Quiz"** para generar preguntas dinámicamente
-3. **Espera** mientras la IA genera las preguntas (puede tomar unos segundos)
-
-### Durante el Quiz
-1. **Lee la pregunta** que aparece en el terminal
-2. **Selecciona una opción** haciendo clic en las opciones A, B, C, o D
-3. **Recibe feedback inmediato** con explicación generada por IA
-4. **Haz clic en "Siguiente Pregunta"** para continuar
-5. **Ve tu progreso** en la barra inferior
-
-### Finalización
-1. **Ve tu puntuación final** con porcentaje y mensaje personalizado
-2. **Inicia un nuevo quiz** haciendo clic en "🔄 Nuevo Quiz"
-
-## 🛠️ Tecnologías Utilizadas
-
-### Frontend
-- **Next.js 15.5.2** - Framework React con SSR
-- **TypeScript** - Tipado estático para mejor desarrollo
-- **Tailwind CSS 4.0** - Estilos utilitarios modernos
-- **React Hooks** - Manejo de estado moderno
-
-### IA y Backend
-- **Google Gemini AI** - Generación principal de preguntas y explicaciones
-- **Hugging Face Inference API** - Sistema de fallback para IA
-- **Next.js API Routes** - Endpoints para integración con APIs de IA
-- **Server-side Processing** - Manejo seguro de API keys
-- **Sistema de Fallback Robusto** - 300+ preguntas predefinidas de alta calidad
-- **Hugging Face Inference API** - Para GPT-2 y generación de texto
-- **Fallback System** - Preguntas predefinidas cuando la API no está disponible
-- **Edge Runtime** - Optimizado para Vercel y similares
-
-### Herramientas de Desarrollo
-- **ESLint** - Linting de código
-- **PostCSS** - Procesamiento de CSS
-- **TypeScript** - Verificación de tipos
-
-## 🔧 Estructura del Proyecto
-
-```
-src/
-├── app/                    # Next.js App Router
-│   ├── globals.css        # Estilos globales
-│   ├── layout.tsx         # Layout principal
-│   └── page.tsx           # Página principal
-├── components/            # Componentes React
-│   ├── Quiz.tsx          # Componente principal del quiz
-│   └── Terminal.tsx      # Componente de terminal
-├── config/               # Configuración
-│   └── quiz.ts          # Configuraciones del quiz
-├── hooks/               # React Hooks personalizados
-│   └── useQuizState.ts  # Hook para manejo de estado
-├── styles/              # Estilos CSS
-│   └── terminal.css     # Estilos del terminal
-└── utils/               # Utilidades
-    └── huggingface.ts   # Funciones de IA y Hugging Face
-```
-
-## 🎨 Personalización
-
-### Modificar Categorías
-Edita `src/utils/huggingface.ts` para agregar nuevas categorías:
-
-```typescript
-export const QUIZ_CATEGORIES = [
-  'programación',
-  'historia',
-  // ... agregar nuevas categorías
-  'nueva-categoria'
-];
-```
-
-### Cambiar Límite de Preguntas
-Modifica `src/config/quiz.ts`:
-
-```typescript
-export const QUIZ_CONFIG = {
-  MAX_QUESTIONS: 15, // Cambiar de 10 a 15
-  // ...
-};
-```
-
-### Personalizar Estilos
-Edita `src/styles/terminal.css` para cambiar colores y efectos:
-
-```css
-:root {
-  --terminal-bg: #1e1e1e;     # Color de fondo
-  --terminal-green: #4caf50;   # Color principal
-  /* ... */
-}
-```
-
-## 🚀 Mejoras Implementadas
-
-### ✅ Problemas Resueltos
-- ❌ **Preguntas repetidas en terminal** → ✅ **Cada pregunta limpia el terminal**
-- ❌ **Preguntas estáticas** → ✅ **Generación dinámica con GPT-2**
-- ❌ **Sin límite de preguntas** → ✅ **Límite configurable de 10 preguntas**
-- ❌ **Interfaz confusa** → ✅ **Navegación clara y progreso visual**
-
-### 🆕 Nuevas Características
-- 🎯 **Selector de categorías** con emojis y descripciones
-- 🤖 **Preguntas completamente dinámicas** generadas por IA
-- 📊 **Sistema de puntuación mejorado** con porcentajes y mensajes
-- 🎨 **Animaciones y transiciones** suaves
-- 📱 **Diseño responsive** para todos los dispositivos
-- 🔄 **Sistema de reinicio** completo del quiz
-
-## 🚀 Posibles Mejoras Futuras
-
-### 🎯 Funcionalidades Avanzadas
-- **Modo multijugador** - Competir con otros usuarios
-- **Historial de puntuaciones** - Guardar resultados localmente
-- **Dificultad variable** - Fácil, medio, difícil
-- **Temporizador** - Preguntas con límite de tiempo
-- **Achievements** - Sistema de logros y medallas
-
-### 🤖 Mejoras de IA
-- **Múltiples modelos** - Integrar GPT-3, Claude, etc.
-- **Preguntas adaptativas** - Dificultad basada en respuestas anteriores
-- **Categorías personalizadas** - Crear categorías específicas
-- **Explicaciones mejoradas** - Feedback más detallado
-
-### 🎨 Mejoras de UX/UI
-- **Temas personalizables** - Terminal verde, azul, etc.
-- **Efectos de sonido** - Sonidos de terminal retro
-- **Modo oscuro/claro** - Alternar entre temas
-- **Animaciones 3D** - Efectos visuales avanzados
-
-## 📝 Licencia
-
-Este proyecto está bajo la licencia MIT. Ver `LICENSE` para más detalles.
-
-## 👨‍💻 Autor
-
-**José** - Desarrollador Full Stack
+[![GitHub stars](https://img.shields.io/github/stars/joseorteha/quizApp?style=social)](https://github.com/joseorteha/quizApp/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/joseorteha/quizApp?style=social)](https://github.com/joseorteha/quizApp/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/joseorteha/quizApp)](https://github.com/joseorteha/quizApp/issues)
+[![License](https://img.shields.io/github/license/joseorteha/quizApp)](./LICENSE)
 
 ---
 
-⭐ Si te gusta este proyecto, ¡dale una estrella en GitHub!
+## 📖 Descripción
+
+**Quiz Terminal App** es una aplicación web moderna que combina la nostalgia de las terminales clásicas con la potencia de la IA moderna. Disfruta de quizzes interactivos en múltiples categorías con una interfaz que te transportará al mundo de Matrix.
+
+### ✨ **Características Destacadas**
+
+- 🎮 **Interfaz Terminal Retro**: Experiencia visual inspirada en Matrix
+- 🤖 **IA Integrada**: Preguntas generadas por Google Gemini API
+- 📚 **Múltiples Categorías**: Programación, Historia, Ciencia, Geografía, Arte, Deportes, Tecnología, Música, Cine, Literatura
+- 💾 **Sistema de Fallback**: 60+ preguntas locales cuando las APIs fallan
+- 🎯 **Contador de Progreso**: Seguimiento dinámico de tu avance
+- 📱 **Responsive Design**: Perfecto en desktop y móvil
+- 🌟 **Efectos Glassmorphism**: Diseño moderno y elegante
+- ⚡ **Super Rápido**: Optimizado con Next.js 15 y React 18
+
+---
+
+## 🖥️ Vista Previa
+
+### 🏠 Pantalla Principal
+*Selecciona tu categoría favorita y comienza la aventura*
+
+### 🎯 Modo Quiz
+*Interfaz terminal con preguntas dinámicas y explicaciones detalladas*
+
+### 📊 Resultados
+*Visualiza tu puntuación y progreso*
+
+---
+
+## 🚀 Instalación Rápida
+
+### 📋 Prerequisitos
+
+- **Node.js** 18.0 o superior
+- **npm** o **yarn**
+- **API Key de Google Gemini** (opcional)
+
+### 🔧 Pasos de Instalación
+
+1. **Clona el repositorio**
+   ```bash
+   git clone https://github.com/joseorteha/quizApp.git
+   cd quizApp
+   ```
+
+2. **Instala las dependencias**
+   ```bash
+   npm install
+   # o
+   yarn install
+   ```
+
+3. **Configura las variables de entorno**
+   ```bash
+   cp .env.example .env.local
+   ```
+   
+   Edita `.env.local` y agrega tu API key:
+   ```env
+   GOOGLE_GEMINI_API_KEY=tu_api_key_aqui
+   ```
+
+4. **Ejecuta en modo desarrollo**
+   ```bash
+   npm run dev
+   # o
+   yarn dev
+   ```
+
+5. **¡Abre tu navegador!**
+   
+   Visita [http://localhost:3000](http://localhost:3000) y disfruta del quiz 🎉
+
+---
+
+## 🎮 Cómo Usar
+
+### 🌟 **Paso 1: Selecciona tu Categoría**
+Elige entre 10 categorías diferentes según tus intereses:
+
+- 💻 **Programación** - Para los amantes del código
+- 📚 **Historia** - Viaja en el tiempo
+- 🔬 **Ciencia** - Explora el universo
+- 🌍 **Geografía** - Conoce el mundo
+- 🎨 **Arte** - Descubre la belleza
+- ⚽ **Deportes** - Vive la adrenalina
+- 🚀 **Tecnología** - El futuro es ahora
+- 🎵 **Música** - Siente el ritmo
+- 🎬 **Cine** - Luces, cámara, acción
+- 📖 **Literatura** - Palabras que inspiran
+
+### 🎯 **Paso 2: Responde las Preguntas**
+- Cada quiz contiene **10 preguntas únicas**
+- Selecciona tu respuesta con un simple clic
+- Obtén **explicaciones detalladas** de cada respuesta
+- Observa tu **progreso en tiempo real**
+
+### 📊 **Paso 3: Ve tus Resultados**
+- Puntuación final detallada
+- Porcentaje de aciertos
+- Opción para repetir o cambiar de categoría
+
+---
+
+## 🛠️ Tecnologías
+
+### 🚀 **Frontend**
+- **Next.js 15.5.2** - Framework React de última generación
+- **React 18** - Biblioteca de interfaces de usuario
+- **TypeScript** - JavaScript con tipos estáticos
+- **Tailwind CSS** - Framework de CSS utility-first
+
+### 🤖 **IA y APIs**
+- **Google Gemini API** - Generación inteligente de preguntas
+- **HuggingFace API** - Modelos de IA alternativos
+- **Sistema de Fallback** - Preguntas locales como respaldo
+
+### 🎨 **Diseño y UX**
+- **Glassmorphism Effects** - Efectos visuales modernos
+- **Matrix Theme** - Estética terminal retro
+- **CSS Custom Properties** - Variables CSS dinámicas
+- **Responsive Design** - Adaptable a todos los dispositivos
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+🎯 Quiz Terminal App/
+├── 📂 src/
+│   ├── 📂 app/
+│   │   ├── 📄 layout.tsx          # Layout principal
+│   │   ├── 📄 page.tsx            # Página principal
+│   │   ├── 📄 globals.css         # Estilos globales
+│   │   └── 📂 api/
+│   │       ├── 📂 generate/       # API de generación de preguntas
+│   │       └── 📂 gemini/         # API de Google Gemini
+│   ├── 📂 components/
+│   │   ├── 📄 Quiz.tsx            # Componente principal del quiz
+│   │   └── 📄 Terminal.tsx        # Componente de terminal
+│   ├── 📂 styles/
+│   │   └── 📄 terminal.css        # Estilos del terminal
+│   └── 📂 utils/
+│       └── 📄 huggingface.ts      # Utilities para HuggingFace
+├── 📂 public/                     # Archivos estáticos
+├── 📄 package.json               # Dependencias del proyecto
+├── 📄 tailwind.config.js         # Configuración de Tailwind
+├── 📄 next.config.js             # Configuración de Next.js
+└── 📄 README.md                  # ¡Este archivo!
+```
+
+---
+
+## 🎨 Características Técnicas
+
+### ⚡ **Rendimiento**
+- **Server-Side Rendering** con Next.js 15
+- **Optimización automática** de imágenes y fonts
+- **Code splitting** inteligente
+- **Carga lazy** de componentes
+
+### 🔒 **Seguridad**
+- **Variables de entorno** protegidas
+- **API routes** seguras
+- **Validación de entrada** en todas las APIs
+- **Rate limiting** para prevenir abuso
+
+### 🌐 **Compatibilidad**
+- **Todos los navegadores modernos**
+- **PWA Ready** (Progressive Web App)
+- **Mobile First** design
+- **Accesibilidad** mejorada
+
+### 🤖 **IA y Machine Learning**
+- **Multiple AI Providers** (Gemini, HuggingFace)
+- **Fallback System** robusto
+- **Error handling** inteligente
+- **Retry logic** automático
+
+---
+
+## 🎮 Comandos Disponibles
+
+```bash
+# 🚀 Desarrollo
+npm run dev          # Inicia el servidor de desarrollo
+npm run build        # Construye la aplicación para producción
+npm run start        # Inicia el servidor de producción
+npm run lint         # Ejecuta el linter
+
+# 🔧 Utilidades
+npm run type-check   # Verificación de tipos TypeScript
+npm run format       # Formatea el código con Prettier
+```
+
+---
+
+## 🤝 Contribuir
+
+¡Las contribuciones son siempre bienvenidas! 💪
+
+### 🌟 **Cómo Contribuir**
+
+1. **Fork** el proyecto
+2. **Crea** tu feature branch (`git checkout -b feature/AmazingFeature`)
+3. **Commit** tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. **Push** a la branch (`git push origin feature/AmazingFeature`)
+5. **Abre** un Pull Request
+
+### 🐛 **Reportar Bugs**
+
+Si encuentras un bug, por favor [abre un issue](https://github.com/joseorteha/quizApp/issues/new) con:
+- 📝 Descripción detallada del problema
+- 🔄 Pasos para reproducir el bug
+- 🖥️ Información del navegador/OS
+- 📷 Screenshots si es posible
+
+### 💡 **Sugerir Features**
+
+¿Tienes una idea genial? [Compártela aquí](https://github.com/joseorteha/quizApp/issues/new) con:
+- 🎯 Descripción de la feature
+- 🤔 Por qué sería útil
+- 📋 Casos de uso específicos
+
+---
+
+## 🔮 Próximas Características
+
+### 🎯 **En Desarrollo**
+- [ ] 🏆 **Sistema de Achievements** - Desbloquea logros
+- [ ] 👥 **Modo Multijugador** - Compite con amigos
+- [ ] 📈 **Analytics Avanzados** - Estadísticas detalladas
+- [ ] 🎨 **Temas Personalizables** - Crea tu propio estilo
+
+### 💭 **Ideas Futuras**
+- [ ] 🔊 **Modo Audio** - Quiz con sonidos
+- [ ] 📱 **App Móvil Nativa** - iOS y Android
+- [ ] 🌐 **Internacionalización** - Múltiples idiomas
+- [ ] 🤖 **Quiz Adaptativos** - Dificultad dinámica
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](./LICENSE) para más detalles.
+
+---
+
+## 👨‍💻 Autor
+
+**José Orteha**
+- 🐙 GitHub: [@joseorteha](https://github.com/joseorteha)
+- 💼 LinkedIn: [José Orteha](https://linkedin.com/in/joseorteha)
+- 📧 Email: joseorteha@example.com
+
+---
+
+## 🙏 Agradecimientos
+
+- 🤖 **Google Gemini** por la API de IA
+- 🔧 **Vercel** por el hosting
+- 🎨 **Tailwind CSS** por el framework de estilos
+- 💻 **Next.js Team** por el increíble framework
+- 🌟 **Open Source Community** por las herramientas
+
+---
+
+## 📊 Estadísticas del Proyecto
+
+![GitHub repo size](https://img.shields.io/github/repo-size/joseorteha/quizApp)
+![GitHub code size](https://img.shields.io/github/languages/code-size/joseorteha/quizApp)
+![GitHub top language](https://img.shields.io/github/languages/top/joseorteha/quizApp)
+![GitHub last commit](https://img.shields.io/github/last-commit/joseorteha/quizApp)
+
+---
+
+<div align="center">
+
+### 🎉 ¡Gracias por usar Quiz Terminal App! 🎉
+
+Si este proyecto te gustó, ¡no olvides darle una ⭐!
+
+**¡Que disfrutes el quiz!** 🚀✨
+
+---
+
+*Hecho con ❤️ y mucho ☕ por [José Orteha](https://github.com/joseorteha)*
+
+</div>
+
