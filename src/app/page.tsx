@@ -79,7 +79,7 @@ export default function Home() {
         <footer className="relative z-10 p-6 mt-auto border-t border-green-400/20 bg-black/30 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto text-center">
             <p className="text-gray-400 text-sm">
-              Desarrollado con ❤️ por <span className="text-green-400 font-semibold">José Ortega</span> usando Next.js, TypeScript, Tailwind CSS y Google Gemini AI
+              Desarrollado con ❤️ por <span className="text-green-400 font-semibold">José Ortega</span>
             </p>
             <p className="text-gray-500 text-xs mt-2">
               © 2025 QuizAI. Zongolica, Veracruz • <a href="https://cybercodigo-seven.vercel.app/" className="text-green-400 hover:text-green-300 transition-colors">Cyber Código</a>
