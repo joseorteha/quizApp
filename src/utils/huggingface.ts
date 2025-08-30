@@ -99,22 +99,32 @@ export async function generateQuizFeedback(question: string, userAnswer: string,
 /**
  * Genera una respuesta de fallback cuando las APIs no están disponibles
  * @param prompt El prompt original
- * @returns Una respuesta predefinida basada en el contenido del prompt
+ * @returns Una respuesta explicativa detallada
  */
 function generarRespuestaFallback(prompt: string): string {
-  // Respuestas predefinidas para diferentes tipos de preguntas
-  if (prompt.includes('capital de Francia')) {
-    return 'París es la capital de Francia. Es conocida como la "Ciudad de la Luz" y es famosa por la Torre Eiffel, el Louvre y su rica historia cultural.';
-  } else if (prompt.includes('lenguaje de programación')) {
-    return 'TypeScript es un lenguaje de programación desarrollado por Microsoft que extiende JavaScript añadiendo tipado estático opcional. Es muy utilizado en el desarrollo web moderno.';
-  } else if (prompt.includes('framework')) {
-    return 'Next.js es un framework de React que permite funcionalidades como renderizado del lado del servidor (SSR), generación de sitios estáticos (SSG), y muchas optimizaciones de rendimiento.';
-  } else if (prompt.includes('modelo de IA')) {
-    return 'Google Gemini es un modelo de lenguaje desarrollado por Google que puede generar texto coherente y contextualmente relevante. Es muy útil para crear contenido educativo.';
-  } else if (prompt.includes('biblioteca de estilos')) {
-    return 'Tailwind CSS es una biblioteca de utilidades CSS de bajo nivel que permite construir diseños personalizados sin salir de tu HTML. Se enfoca en clases de utilidad en lugar de componentes predefinidos.';
+  // Generar explicaciones naturales y educativas
+  if (prompt.includes('programación') || prompt.includes('TypeScript') || prompt.includes('JavaScript')) {
+    return 'TypeScript es una excelente elección para el desarrollo moderno. Al agregar tipado estático a JavaScript, TypeScript ayuda a detectar errores en tiempo de compilación, mejora la productividad del desarrollador y facilita el mantenimiento de aplicaciones grandes. Su compatibilidad con JavaScript lo hace ideal para proyectos existentes.';
+  } else if (prompt.includes('React') || prompt.includes('framework')) {
+    return 'React se ha convertido en uno de los frameworks más populares debido a su enfoque basado en componentes y su virtual DOM. Permite crear interfaces de usuario interactivas y reutilizables. Su ecosistema robusto y la gran comunidad de desarrolladores lo hacen una excelente opción para proyectos web modernos.';
+  } else if (prompt.includes('historia') || prompt.includes('guerra') || prompt.includes('imperio')) {
+    return 'Los eventos históricos están interconectados y han moldeado el mundo actual. Comprender el contexto histórico nos ayuda a entender mejor las decisiones políticas, sociales y económicas de diferentes épocas. Cada civilización ha contribuido de manera única al desarrollo de la humanidad.';
+  } else if (prompt.includes('ciencia') || prompt.includes('química') || prompt.includes('física')) {
+    return 'La ciencia nos permite comprender los principios fundamentales que rigen nuestro universo. Desde las partículas subatómicas hasta las galaxias distantes, cada descubrimiento científico amplía nuestro conocimiento y nos ayuda a desarrollar tecnologías que mejoran la vida humana.';
+  } else if (prompt.includes('geografía') || prompt.includes('país') || prompt.includes('capital')) {
+    return 'La geografía influye profundamente en la cultura, economía y desarrollo de las sociedades. La ubicación geográfica determina el clima, los recursos naturales disponibles y las rutas comerciales, factores que han sido cruciales en la formación de civilizaciones a lo largo de la historia.';
+  } else if (prompt.includes('arte') || prompt.includes('pintura') || prompt.includes('escultura')) {
+    return 'El arte es una expresión fundamental de la experiencia humana que trasciende barreras culturales y temporales. Cada movimiento artístico refleja los valores, preocupaciones y aspiraciones de su época, creando un diálogo continuo entre el pasado y el presente.';
+  } else if (prompt.includes('deportes') || prompt.includes('juego') || prompt.includes('competencia')) {
+    return 'Los deportes van más allá de la competencia física; representan valores como trabajo en equipo, perseverancia y fair play. Cada deporte tiene reglas específicas y estrategias únicas que han evolucionado a lo largo del tiempo para crear experiencias emocionantes tanto para atletas como para espectadores.';
+  } else if (prompt.includes('música') || prompt.includes('instrumento') || prompt.includes('compositor')) {
+    return 'La música es un lenguaje universal que conecta emociones y culturas. Cada género musical tiene características distintivas que reflejan su origen cultural y histórico. Los grandes compositores han creado obras que continúan inspirando a nuevas generaciones de músicos y oyentes.';
+  } else if (prompt.includes('cine') || prompt.includes('película') || prompt.includes('director')) {
+    return 'El cine es un arte que combina narrativa visual, actuación, música y efectos para crear experiencias inmersivas. Los grandes directores han revolucionado la forma de contar historias, utilizando técnicas cinematográficas innovadoras que han influenciado el medium para siempre.';
+  } else if (prompt.includes('literatura') || prompt.includes('libro') || prompt.includes('autor')) {
+    return 'La literatura nos permite explorar la condición humana a través de diferentes perspectivas y épocas. Los grandes autores han creado obras que trascienden su tiempo, ofreciendo insights profundos sobre la naturaleza humana, la sociedad y nuestro lugar en el mundo.';
   } else {
-    return 'Esta es una respuesta generada localmente. En un entorno de producción con API configurada, recibirías una explicación más detallada generada por IA.';
+    return 'Este tema requiere un análisis detallado considerando múltiples factores. La comprensión profunda viene de conectar diferentes conceptos y ver cómo se relacionan entre sí. Es importante considerar el contexto histórico, cultural y científico para obtener una perspectiva completa.';
   }
 }
 
@@ -274,6 +284,26 @@ function generarPreguntaFallback(category: string): QuizQuestion {
         question: '¿Cuál es la complejidad temporal del algoritmo quicksort en el caso promedio?',
         options: ['O(n)', 'O(n log n)', 'O(n²)', 'O(log n)'],
         correctIndex: 1
+      },
+      {
+        question: '¿Qué significa "SQL" en bases de datos?',
+        options: ['Structured Query Language', 'Simple Query Language', 'System Query Language', 'Standard Quality Language'],
+        correctIndex: 0
+      },
+      {
+        question: '¿Cuál de estos NO es un patrón de diseño?',
+        options: ['Singleton', 'Observer', 'Recursion', 'Factory'],
+        correctIndex: 2
+      },
+      {
+        question: '¿Qué es Git en programación?',
+        options: ['Un lenguaje de programación', 'Un sistema de control de versiones', 'Un framework web', 'Un editor de código'],
+        correctIndex: 1
+      },
+      {
+        question: '¿Cuál es la diferencia principal entre "==" y "===" en JavaScript?',
+        options: ['No hay diferencia', '=== compara tipo y valor, == solo valor', '== compara tipo y valor, === solo valor', 'Solo se puede usar === en funciones'],
+        correctIndex: 1
       }
     ],
     'historia': [
@@ -306,6 +336,26 @@ function generarPreguntaFallback(category: string): QuizQuestion {
         question: '¿Quién fue el líder de la Revolución Rusa de 1917?',
         options: ['Stalin', 'Trotsky', 'Lenin', 'Kerensky'],
         correctIndex: 2
+      },
+      {
+        question: '¿En qué siglo vivió Napoleón Bonaparte?',
+        options: ['XVII', 'XVIII', 'XIX', 'XX'],
+        correctIndex: 2
+      },
+      {
+        question: '¿Qué civilización antigua construyó las pirámides de Giza?',
+        options: ['Babilónica', 'Egipcia', 'Griega', 'Romana'],
+        correctIndex: 1
+      },
+      {
+        question: '¿En qué año se firmó la Declaración de Independencia de Estados Unidos?',
+        options: ['1774', '1775', '1776', '1777'],
+        correctIndex: 2
+      },
+      {
+        question: '¿Quién fue conocido como el "Rey Sol"?',
+        options: ['Luis XIII', 'Luis XIV', 'Luis XV', 'Luis XVI'],
+        correctIndex: 1
       }
     ],
     'ciencia': [
@@ -337,6 +387,26 @@ function generarPreguntaFallback(category: string): QuizQuestion {
       {
         question: '¿Cuál es la unidad básica de la herencia genética?',
         options: ['Cromosoma', 'Gen', 'ADN', 'ARN'],
+        correctIndex: 1
+      },
+      {
+        question: '¿Quién propuso la teoría de la relatividad?',
+        options: ['Newton', 'Einstein', 'Darwin', 'Galileo'],
+        correctIndex: 1
+      },
+      {
+        question: '¿Cuál es el órgano más grande del cuerpo humano?',
+        options: ['Hígado', 'Cerebro', 'Pulmones', 'Piel'],
+        correctIndex: 3
+      },
+      {
+        question: '¿Qué proceso utilizan las plantas para convertir luz solar en energía?',
+        options: ['Respiración', 'Fotosíntesis', 'Digestión', 'Fermentación'],
+        correctIndex: 1
+      },
+      {
+        question: '¿Cuál es el símbolo químico del oro?',
+        options: ['Go', 'Au', 'Or', 'Ag'],
         correctIndex: 1
       }
     ],
@@ -370,6 +440,26 @@ function generarPreguntaFallback(category: string): QuizQuestion {
         question: '¿En qué país se encuentra la región de Transilvania?',
         options: ['Hungría', 'Bulgaria', 'Rumania', 'Serbia'],
         correctIndex: 2
+      },
+      {
+        question: '¿Cuál es el desierto más grande del mundo?',
+        options: ['Sahara', 'Gobi', 'Kalahari', 'Antártida'],
+        correctIndex: 3
+      },
+      {
+        question: '¿Qué océano separa América de Europa?',
+        options: ['Pacífico', 'Índico', 'Atlántico', 'Ártico'],
+        correctIndex: 2
+      },
+      {
+        question: '¿Cuál es la capital de Japón?',
+        options: ['Osaka', 'Kioto', 'Tokio', 'Nagoya'],
+        correctIndex: 2
+      },
+      {
+        question: '¿En qué continente se encuentra el lago Baikal?',
+        options: ['Europa', 'Asia', 'América del Norte', 'África'],
+        correctIndex: 1
       }
     ],
     'arte': [
@@ -402,6 +492,26 @@ function generarPreguntaFallback(category: string): QuizQuestion {
         question: '¿Cuál es la técnica de pintura que usa puntos de color?',
         options: ['Impresionismo', 'Cubismo', 'Puntillismo', 'Fauvismo'],
         correctIndex: 2
+      },
+      {
+        question: '¿Quién pintó "Guernica"?',
+        options: ['Salvador Dalí', 'Pablo Picasso', 'Joan Miró', 'Francisco Goya'],
+        correctIndex: 1
+      },
+      {
+        question: '¿En qué ciudad se encuentra la Capilla Sixtina?',
+        options: ['Florencia', 'Venecia', 'Milán', 'Ciudad del Vaticano'],
+        correctIndex: 3
+      },
+      {
+        question: '¿Quién pintó "Las Meninas"?',
+        options: ['El Greco', 'Velázquez', 'Goya', 'Murillo'],
+        correctIndex: 1
+      },
+      {
+        question: '¿Cuál es el movimiento artístico de Claude Monet?',
+        options: ['Realismo', 'Impresionismo', 'Romanticism', 'Barroco'],
+        correctIndex: 1
       }
     ],
     'deportes': [
@@ -434,6 +544,26 @@ function generarPreguntaFallback(category: string): QuizQuestion {
         question: '¿Cuál es la distancia de un maratón?',
         options: ['40 km', '42.195 km', '45 km', '50 km'],
         correctIndex: 1
+      },
+      {
+        question: '¿En qué deporte se utiliza una raqueta y una pelota amarilla?',
+        options: ['Badminton', 'Squash', 'Tenis', 'Ping pong'],
+        correctIndex: 2
+      },
+      {
+        question: '¿Cuántos sets se necesitan ganar para ganar un partido de tenis masculino en Grand Slam?',
+        options: ['2', '3', '4', '5'],
+        correctIndex: 1
+      },
+      {
+        question: '¿En qué año se celebraron los primeros Juegos Olímpicos modernos?',
+        options: ['1892', '1896', '1900', '1904'],
+        correctIndex: 1
+      },
+      {
+        question: '¿Cuál es el máximo número de jugadores en un equipo de fútbol americano en el campo?',
+        options: ['9', '10', '11', '12'],
+        correctIndex: 2
       }
     ],
     'tecnología': [
@@ -466,6 +596,26 @@ function generarPreguntaFallback(category: string): QuizQuestion {
         question: '¿En qué año se fundó YouTube?',
         options: ['2003', '2004', '2005', '2006'],
         correctIndex: 2
+      },
+      {
+        question: '¿Qué significa "CPU" en informática?',
+        options: ['Central Processing Unit', 'Computer Processing Unit', 'Central Program Unit', 'Computer Program Unit'],
+        correctIndex: 0
+      },
+      {
+        question: '¿Quién fundó Tesla Motors?',
+        options: ['Bill Gates', 'Steve Jobs', 'Elon Musk', 'Mark Zuckerberg'],
+        correctIndex: 2
+      },
+      {
+        question: '¿Qué lenguaje de programación desarrolló Guido van Rossum?',
+        options: ['Java', 'Python', 'C++', 'JavaScript'],
+        correctIndex: 1
+      },
+      {
+        question: '¿En qué año se fundó Google?',
+        options: ['1996', '1998', '2000', '2002'],
+        correctIndex: 1
       }
     ],
     'música': [
@@ -497,6 +647,26 @@ function generarPreguntaFallback(category: string): QuizQuestion {
       {
         question: '¿Quién compuso "El lago de los cisnes"?',
         options: ['Mozart', 'Chopin', 'Tchaikovsky', 'Bach'],
+        correctIndex: 2
+      },
+      {
+        question: '¿Qué género musical popularizó Bob Marley?',
+        options: ['Jazz', 'Blues', 'Reggae', 'Rock'],
+        correctIndex: 2
+      },
+      {
+        question: '¿Cuál es el nombre real de Elton John?',
+        options: ['Reginald Dwight', 'David Jones', 'George O\'Dowd', 'Robert Plant'],
+        correctIndex: 0
+      },
+      {
+        question: '¿En qué década surgió el movimiento punk?',
+        options: ['1960s', '1970s', '1980s', '1990s'],
+        correctIndex: 1
+      },
+      {
+        question: '¿Qué instrumento es conocido como "el rey de los instrumentos"?',
+        options: ['Piano', 'Violín', 'Órgano', 'Trompeta'],
         correctIndex: 2
       }
     ],
@@ -530,6 +700,26 @@ function generarPreguntaFallback(category: string): QuizQuestion {
         question: '¿En qué película aparece la frase "Que la fuerza te acompañe"?',
         options: ['Star Trek', 'Star Wars', 'Guardians of the Galaxy', 'Matrix'],
         correctIndex: 1
+      },
+      {
+        question: '¿Quién dirigió "Pulp Fiction"?',
+        options: ['Martin Scorsese', 'Quentin Tarantino', 'Christopher Nolan', 'Tim Burton'],
+        correctIndex: 1
+      },
+      {
+        question: '¿En qué película Tom Hanks dice "La vida es como una caja de chocolates"?',
+        options: ['Cast Away', 'Forrest Gump', 'Philadelphia', 'Big'],
+        correctIndex: 1
+      },
+      {
+        question: '¿Cuál fue la primera película de la saga "Matrix"?',
+        options: ['1997', '1998', '1999', '2000'],
+        correctIndex: 2
+      },
+      {
+        question: '¿Qué director es conocido por películas como "Inception" y "The Dark Knight"?',
+        options: ['Steven Spielberg', 'Christopher Nolan', 'Ridley Scott', 'James Cameron'],
+        correctIndex: 1
       }
     ],
     'literatura': [
@@ -562,6 +752,26 @@ function generarPreguntaFallback(category: string): QuizQuestion {
         question: '¿Cuál es el primer libro de "El Señor de los Anillos"?',
         options: ['Las Dos Torres', 'El Retorno del Rey', 'La Comunidad del Anillo', 'El Hobbit'],
         correctIndex: 2
+      },
+      {
+        question: '¿Quién escribió "Orgullo y prejuicio"?',
+        options: ['Charlotte Brontë', 'Emily Brontë', 'Jane Austen', 'Virginia Woolf'],
+        correctIndex: 2
+      },
+      {
+        question: '¿En qué siglo vivió Miguel de Cervantes?',
+        options: ['XV', 'XVI', 'XVII', 'XVIII'],
+        correctIndex: 2
+      },
+      {
+        question: '¿Quién escribió "El gran Gatsby"?',
+        options: ['Ernest Hemingway', 'F. Scott Fitzgerald', 'John Steinbeck', 'William Faulkner'],
+        correctIndex: 1
+      },
+      {
+        question: '¿Cuál es la obra más famosa de Edgar Allan Poe?',
+        options: ['El cuervo', 'El gato negro', 'La caída de la Casa Usher', 'Ligeia'],
+        correctIndex: 0
       }
     ]
   };
