@@ -11,7 +11,14 @@ const Terminal: React.FC<TerminalProps> = ({ children, title = 'Quiz Terminal' }
   useEffect(() => {
     // Auto-scroll to bottom when content changes
     if (terminalBodyRef.current) {
-      terminalBodyRef.current.scrollTop = terminalBodyRef.current.scrollHeight;
+      const scrollToBottom = () => {
+        terminalBodyRef.current!.scrollTop = terminalBodyRef.current!.scrollHeight;
+      };
+      
+      // Small delay to ensure content is rendered
+      const timeoutId = setTimeout(scrollToBottom, 100);
+      
+      return () => clearTimeout(timeoutId);
     }
   }, [children]);
 
@@ -26,7 +33,14 @@ const Terminal: React.FC<TerminalProps> = ({ children, title = 'Quiz Terminal' }
         <div className="terminal-title">{title}</div>
         <div style={{ width: '60px' }} /> {/* Spacer for balance */}
       </div>
-      <div className="terminal-body" ref={terminalBodyRef}>
+      <div 
+        className="terminal-body" 
+        ref={terminalBodyRef}
+        style={{ 
+          scrollBehavior: 'smooth',
+          WebkitOverflowScrolling: 'touch' // Better scroll on iOS
+        }}
+      >
         {children}
       </div>
     </div>

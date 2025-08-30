@@ -259,6 +259,21 @@ function generarPreguntaFallback(category: string): QuizQuestion {
         question: '¿Qué significa "API" en programación?',
         options: ['Application Programming Interface', 'Advanced Programming Integration', 'Automated Program Instruction', 'Application Process Integration'],
         correctIndex: 0
+      },
+      {
+        question: '¿Cuál es el paradigma de programación principal de Python?',
+        options: ['Funcional', 'Orientado a objetos', 'Multiparadigma', 'Declarativo'],
+        correctIndex: 2
+      },
+      {
+        question: '¿Qué comando se usa para instalar paquetes en Node.js?',
+        options: ['pip install', 'npm install', 'apt install', 'brew install'],
+        correctIndex: 1
+      },
+      {
+        question: '¿Cuál es la complejidad temporal del algoritmo quicksort en el caso promedio?',
+        options: ['O(n)', 'O(n log n)', 'O(n²)', 'O(log n)'],
+        correctIndex: 1
       }
     ],
     'historia': [
@@ -276,6 +291,21 @@ function generarPreguntaFallback(category: string): QuizQuestion {
         question: '¿En qué año cayó el Muro de Berlín?',
         options: ['1987', '1989', '1991', '1993'],
         correctIndex: 1
+      },
+      {
+        question: '¿Qué imperio construyó Machu Picchu?',
+        options: ['Azteca', 'Maya', 'Inca', 'Olmeca'],
+        correctIndex: 2
+      },
+      {
+        question: '¿En qué año llegó Cristóbal Colón a América?',
+        options: ['1490', '1492', '1494', '1498'],
+        correctIndex: 1
+      },
+      {
+        question: '¿Quién fue el líder de la Revolución Rusa de 1917?',
+        options: ['Stalin', 'Trotsky', 'Lenin', 'Kerensky'],
+        correctIndex: 2
       }
     ],
     'ciencia': [
@@ -293,6 +323,21 @@ function generarPreguntaFallback(category: string): QuizQuestion {
         question: '¿Cuál es la velocidad de la luz en el vacío?',
         options: ['299,792,458 m/s', '300,000,000 m/s', '299,000,000 m/s', '301,000,000 m/s'],
         correctIndex: 0
+      },
+      {
+        question: '¿Cuál es la fórmula química del agua?',
+        options: ['H2O', 'CO2', 'NaCl', 'CH4'],
+        correctIndex: 0
+      },
+      {
+        question: '¿Qué planeta es conocido como el "planeta rojo"?',
+        options: ['Venus', 'Júpiter', 'Marte', 'Saturno'],
+        correctIndex: 2
+      },
+      {
+        question: '¿Cuál es la unidad básica de la herencia genética?',
+        options: ['Cromosoma', 'Gen', 'ADN', 'ARN'],
+        correctIndex: 1
       }
     ],
     'geografía': [
@@ -309,6 +354,21 @@ function generarPreguntaFallback(category: string): QuizQuestion {
       {
         question: '¿En qué continente está ubicado Machu Picchu?',
         options: ['Asia', 'África', 'América del Sur', 'Europa'],
+        correctIndex: 2
+      },
+      {
+        question: '¿Cuál es la capital de Australia?',
+        options: ['Sydney', 'Melbourne', 'Canberra', 'Perth'],
+        correctIndex: 2
+      },
+      {
+        question: '¿Cuál es el monte más alto del mundo?',
+        options: ['K2', 'Everest', 'Kangchenjunga', 'Lhotse'],
+        correctIndex: 1
+      },
+      {
+        question: '¿En qué país se encuentra la región de Transilvania?',
+        options: ['Hungría', 'Bulgaria', 'Rumania', 'Serbia'],
         correctIndex: 2
       }
     ],
@@ -327,12 +387,27 @@ function generarPreguntaFallback(category: string): QuizQuestion {
         question: '¿Cuál es el estilo artístico de Salvador Dalí?',
         options: ['Impresionismo', 'Cubismo', 'Surrealismo', 'Expresionismo'],
         correctIndex: 2
+      },
+      {
+        question: '¿Quién esculpió "El David"?',
+        options: ['Donatello', 'Miguel Ángel', 'Bernini', 'Rodin'],
+        correctIndex: 1
+      },
+      {
+        question: '¿En qué siglo vivió Leonardo da Vinci?',
+        options: ['XIV', 'XV', 'XVI', 'XVII'],
+        correctIndex: 2
+      },
+      {
+        question: '¿Cuál es la técnica de pintura que usa puntos de color?',
+        options: ['Impresionismo', 'Cubismo', 'Puntillismo', 'Fauvismo'],
+        correctIndex: 2
       }
     ],
     'deportes': [
       {
-        question: '¿En qué deporte se utiliza un disco?',
-        options: ['Hockey', 'Golf', 'Tenis', 'Fútbol'],
+        question: '¿En qué deporte se utiliza un disco (puck)?',
+        options: ['Hockey sobre hielo', 'Golf', 'Tenis', 'Fútbol'],
         correctIndex: 0
       },
       {
@@ -343,6 +418,21 @@ function generarPreguntaFallback(category: string): QuizQuestion {
       {
         question: '¿Cuál es el único país que ha participado en todas las Copas del Mundo de fútbol?',
         options: ['Argentina', 'Brasil', 'Alemania', 'Italia'],
+        correctIndex: 1
+      },
+      {
+        question: '¿Cuántos jugadores hay en un equipo de baloncesto en la cancha?',
+        options: ['4', '5', '6', '7'],
+        correctIndex: 1
+      },
+      {
+        question: '¿En qué deporte se compite por la Copa Davis?',
+        options: ['Golf', 'Tenis', 'Fútbol', 'Cricket'],
+        correctIndex: 1
+      },
+      {
+        question: '¿Cuál es la distancia de un maratón?',
+        options: ['40 km', '42.195 km', '45 km', '50 km'],
         correctIndex: 1
       }
     ],
@@ -361,6 +451,21 @@ function generarPreguntaFallback(category: string): QuizQuestion {
         question: '¿Qué significa "WWW"?',
         options: ['World Wide Web', 'World Web Wide', 'Wide World Web', 'Web World Wide'],
         correctIndex: 0
+      },
+      {
+        question: '¿Cuál fue la primera red social masiva?',
+        options: ['Facebook', 'MySpace', 'Friendster', 'LinkedIn'],
+        correctIndex: 2
+      },
+      {
+        question: '¿Qué empresa desarrolló el sistema operativo Android?',
+        options: ['Apple', 'Microsoft', 'Google', 'Samsung'],
+        correctIndex: 2
+      },
+      {
+        question: '¿En qué año se fundó YouTube?',
+        options: ['2003', '2004', '2005', '2006'],
+        correctIndex: 2
       }
     ],
     'música': [
@@ -378,6 +483,21 @@ function generarPreguntaFallback(category: string): QuizQuestion {
         question: '¿Qué banda británica cantó "Bohemian Rhapsody"?',
         options: ['The Beatles', 'Queen', 'Led Zeppelin', 'The Rolling Stones'],
         correctIndex: 1
+      },
+      {
+        question: '¿De qué país es originario el tango?',
+        options: ['Brasil', 'Argentina', 'Uruguay', 'Chile'],
+        correctIndex: 1
+      },
+      {
+        question: '¿Cuántas cuerdas tiene una guitarra estándar?',
+        options: ['4', '5', '6', '7'],
+        correctIndex: 2
+      },
+      {
+        question: '¿Quién compuso "El lago de los cisnes"?',
+        options: ['Mozart', 'Chopin', 'Tchaikovsky', 'Bach'],
+        correctIndex: 2
       }
     ],
     'cine': [
@@ -392,9 +512,24 @@ function generarPreguntaFallback(category: string): QuizQuestion {
         correctIndex: 1
       },
       {
-        question: '¿Cuál fue la primera película de Disney en usar animación por computadora?',
-        options: ['Toy Story', 'El Rey León', 'Pocahontas', 'Tarzan'],
+        question: '¿Cuál fue la primera película animada de Disney?',
+        options: ['Blancanieves', 'Bambi', 'Pinocho', 'Cenicienta'],
         correctIndex: 0
+      },
+      {
+        question: '¿Qué actor interpretó a Jack Sparrow?',
+        options: ['Orlando Bloom', 'Johnny Depp', 'Brad Pitt', 'Leonardo DiCaprio'],
+        correctIndex: 1
+      },
+      {
+        question: '¿Cuál es la película más taquillera de todos los tiempos (sin ajustar por inflación)?',
+        options: ['Titanic', 'Avatar', 'Avengers: Endgame', 'Star Wars'],
+        correctIndex: 2
+      },
+      {
+        question: '¿En qué película aparece la frase "Que la fuerza te acompañe"?',
+        options: ['Star Trek', 'Star Wars', 'Guardians of the Galaxy', 'Matrix'],
+        correctIndex: 1
       }
     ],
     'literatura': [
@@ -412,6 +547,21 @@ function generarPreguntaFallback(category: string): QuizQuestion {
         question: '¿Quién escribió "1984"?',
         options: ['Aldous Huxley', 'George Orwell', 'Ray Bradbury', 'Isaac Asimov'],
         correctIndex: 1
+      },
+      {
+        question: '¿En qué país nació William Shakespeare?',
+        options: ['Francia', 'España', 'Inglaterra', 'Italia'],
+        correctIndex: 2
+      },
+      {
+        question: '¿Quién escribió "Don Quijote de la Mancha"?',
+        options: ['Miguel de Cervantes', 'Lope de Vega', 'Federico García Lorca', 'Antonio Machado'],
+        correctIndex: 0
+      },
+      {
+        question: '¿Cuál es el primer libro de "El Señor de los Anillos"?',
+        options: ['Las Dos Torres', 'El Retorno del Rey', 'La Comunidad del Anillo', 'El Hobbit'],
+        correctIndex: 2
       }
     ]
   };
