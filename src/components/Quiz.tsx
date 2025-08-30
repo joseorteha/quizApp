@@ -374,6 +374,8 @@ const Quiz: React.FC = () => {
               </div>
             )}
             
+            {/* Contador de progreso temporalmente deshabilitado */}
+            {/*
             <div className="quiz-progress">
               <div 
                 className="quiz-progress-bar" 
@@ -383,6 +385,7 @@ const Quiz: React.FC = () => {
                 {currentQuestionIndex + 1} / {MAX_QUESTIONS} | Puntos: {score}
               </div>
             </div>
+            */}
           </>
         ) : null;
 
