@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 
 // Importar dinámicamente los componentes para evitar errores de SSR
 const Quiz = dynamic(() => import('../components/Quiz'), {
@@ -22,6 +22,8 @@ const MatrixBackground = dynamic(() => import('../components/MatrixBackground'),
 });
 
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-black text-green-400 relative overflow-hidden">
       {/* Fondo de matriz */}
@@ -30,30 +32,64 @@ export default function Home() {
       {/* Contenido principal */}
       <div className="relative z-10 min-h-screen flex flex-col">
         {/* Header */}
-        <header className="p-6">
+        <header className="p-4 sm:p-6">
           <nav className="flex justify-between items-center max-w-7xl mx-auto">
-            <div className="text-2xl font-bold tracking-wider">
+            <div className="text-xl sm:text-2xl font-bold tracking-wider">
               <span className="text-white">QUIZ</span>
               <span className="text-green-400">AI</span>
             </div>
+            
+            {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
               <Link href="/caracteristicas" className="hover:text-green-300 transition-colors">Características</Link>
               <Link href="/acerca-de" className="hover:text-green-300 transition-colors">Acerca de</Link>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button 
+              className="md:hidden text-green-400 focus:outline-none"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+              </svg>
+            </button>
           </nav>
+
+          {/* Mobile Menu */}
+          {isMenuOpen && (
+            <div className="md:hidden mt-4 pb-4 border-t border-green-400/30">
+              <div className="flex flex-col space-y-4 pt-4">
+                <Link 
+                  href="/caracteristicas" 
+                  className="hover:text-green-300 transition-colors text-center py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Características
+                </Link>
+                <Link 
+                  href="/acerca-de" 
+                  className="hover:text-green-300 transition-colors text-center py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Acerca de
+                </Link>
+              </div>
+            </div>
+          )}
         </header>
 
         {/* Hero Section */}
         <main className="flex-1 flex flex-col items-center justify-center px-4 sm:px-8">
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-green-400 via-green-300 to-green-500 bg-clip-text text-transparent">
+          <div className="max-w-4xl mx-auto text-center mb-8 sm:mb-12">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-green-400 via-green-300 to-green-500 bg-clip-text text-transparent leading-tight">
               El Verdadero Quiz
             </h1>
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-light mb-8 text-white">
+            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-light mb-6 sm:mb-8 text-white">
               Colabora con
               <span className="block text-green-400 font-bold">Inteligencia Artificial</span>
             </h2>
-            <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
               QuizAI es tu compañero de 10x que puede generar preguntas dinámicas 
               e inteligentes para ti de forma independiente.
             </p>
@@ -76,12 +112,12 @@ export default function Home() {
         </main>
 
         {/* Footer */}
-        <footer className="relative z-10 p-6 mt-auto border-t border-green-400/20 bg-black/30 backdrop-blur-sm">
+        <footer className="relative z-10 p-4 sm:p-6 mt-auto border-t border-green-400/20 bg-black/30 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto text-center">
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 text-xs sm:text-sm">
               Desarrollado con ❤️ por <span className="text-green-400 font-semibold">José Ortega</span>
             </p>
-            <p className="text-gray-500 text-xs mt-2">
+            <p className="text-gray-500 text-xs mt-1 sm:mt-2">
               © 2025 QuizAI. Zongolica, Veracruz • <a href="https://cybercodigo-seven.vercel.app/" className="text-green-400 hover:text-green-300 transition-colors">Cyber Código</a>
             </p>
           </div>
