@@ -374,18 +374,14 @@ const Quiz: React.FC = () => {
               </div>
             )}
             
-            {/* Contador de progreso temporalmente deshabilitado */}
-            {/*
-            <div className="quiz-progress">
-              <div 
-                className="quiz-progress-bar" 
-                style={{ width: `${((currentQuestionIndex + 1) / MAX_QUESTIONS) * 100}%` }} 
-              />
-              <div className="quiz-progress-text">
-                {currentQuestionIndex + 1} / {MAX_QUESTIONS} | Puntos: {score}
-              </div>
-            </div>
-            */}
+            {answerRevealed && !loading && (
+              <TerminalLine>
+                <div className="quiz-progress-text">
+                  {currentQuestionIndex + 1} / {MAX_QUESTIONS} | Puntos: {score}
+                </div>
+              </TerminalLine>
+            )}
+            
           </>
         ) : null;
 
