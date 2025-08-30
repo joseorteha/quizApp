@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { HfInference } from '@huggingface/inference';
 
 export async function GET() {
@@ -58,12 +58,13 @@ export async function GET() {
           allResults: results
         });
         
-      } catch (error: any) {
-        console.log(`[TEST API] ❌ ${model} FAILED:`, error.message);
+      } catch (error: unknown) {
+        const err = error as Error;
+        console.log(`[TEST API] ❌ ${model} FAILED:`, err.message);
         results.push({
           model,
           success: false,
-          error: error.message
+          error: err.message
         });
       }
     }
@@ -74,11 +75,12 @@ export async function GET() {
       allResults: results
     });
     
-  } catch (error: any) {
-    console.error('[TEST API] Error:', error);
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.error('[TEST API] Error:', err);
     return NextResponse.json({ 
       success: false, 
-      message: error.message 
+      message: err.message 
     });
   }
 }

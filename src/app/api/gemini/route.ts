@@ -63,9 +63,10 @@ export async function POST(request: NextRequest) {
           provider: 'Google Gemini'
         });
         
-      } catch (modelError: any) {
-        console.log(`❌ Model ${modelName} failed:`, modelError.message);
-        lastError = modelError;
+      } catch (modelError: unknown) {
+        const error = modelError as Error;
+        console.log(`❌ Model ${modelName} failed:`, error.message);
+        lastError = error;
         continue;
       }
     }
@@ -73,12 +74,13 @@ export async function POST(request: NextRequest) {
     // Si todos los modelos fallan
     throw lastError || new Error('All models failed');
     
-  } catch (error: any) {
-    console.error('❌ Google Gemini API error:', error);
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.error('❌ Google Gemini API error:', err);
     
     return NextResponse.json({
       success: false,
-      message: `Google Gemini error: ${error.message}`,
+      message: `Google Gemini error: ${err.message}`,
       model: 'gemini-api'
     });
   }

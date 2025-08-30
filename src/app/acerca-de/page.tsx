@@ -74,7 +74,7 @@ export default function AcercaDe() {
                   proporcionando una experiencia de aprendizaje personalizada y desafiante.
                 </p>
                 <p className="text-green-400 font-semibold">
-                  "Si puedes soñarlo, puedes programarlo" - Mi filosofía de desarrollo.
+                  &ldquo;Si puedes soñarlo, puedes programarlo&rdquo; - Mi filosofía de desarrollo.
                 </p>
               </div>
 

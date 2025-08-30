@@ -52,8 +52,9 @@ export async function POST(request: NextRequest) {
           usesFallback: false
         });
         
-      } catch (error: any) {
-        console.log(`[API] Model ${model} failed:`, error.message);
+      } catch (error: unknown) {
+        const err = error as Error;
+        console.log(`[API] Model ${model} failed:`, err.message);
         continue;
       }
     }
@@ -65,11 +66,12 @@ export async function POST(request: NextRequest) {
       usesFallback: true 
     });
     
-  } catch (error: any) {
-    console.error('[API] Error:', error);
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.error('[API] Error:', err);
     return NextResponse.json({ 
       success: false, 
-      message: error.message,
+      message: err.message,
       usesFallback: true 
     });
   }

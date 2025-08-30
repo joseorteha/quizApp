@@ -68,7 +68,7 @@ export async function generateText(prompt: string, maxTokens: number = 100, temp
       return generarRespuestaFallback(prompt);
     }
     
-  } catch (error) {
+  } catch {
     return generarRespuestaFallback(prompt);
   }
 }

@@ -31,11 +31,13 @@ export function getRandomElement<T>(array: T[]): T {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-export function validateQuizData(data: any): boolean {
+export function validateQuizData(data: unknown): boolean {
   if (!data || typeof data !== 'object') return false;
-  if (!data.question || typeof data.question !== 'string') return false;
-  if (!Array.isArray(data.options) || data.options.length !== 4) return false;
-  if (typeof data.correctIndex !== 'number' || data.correctIndex < 0 || data.correctIndex > 3) return false;
+  
+  const obj = data as Record<string, unknown>;
+  if (!obj.question || typeof obj.question !== 'string') return false;
+  if (!Array.isArray(obj.options) || obj.options.length !== 4) return false;
+  if (typeof obj.correctIndex !== 'number' || obj.correctIndex < 0 || obj.correctIndex > 3) return false;
   return true;
 }
 

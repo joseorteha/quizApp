@@ -1,6 +1,5 @@
 import { useState, useCallback } from 'react';
 import { QuizQuestion } from '../utils/huggingface';
-import { QUIZ_CONFIG } from '../config/quiz';
 
 export type GameState = 'setup' | 'playing' | 'completed';
 export type QuizCategory = 'mixto' | 'programación' | 'historia' | 'ciencia' | 'geografía' | 'arte' | 'deportes' | 'tecnología' | 'música' | 'cine' | 'literatura';

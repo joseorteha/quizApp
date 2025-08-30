@@ -35,13 +35,14 @@
 ## 🖥️ Vista Previa
 
 ### 🏠 Pantalla Principal
-*Selecciona tu categoría favorita y comienza la aventura*
+![alt text](image.png)
+
 
 ### 🎯 Modo Quiz
-*Interfaz terminal con preguntas dinámicas y explicaciones detalladas*
+![alt text](image-1.png)
 
 ### 📊 Resultados
-*Visualiza tu puntuación y progreso*
+![alt text](image-2.png)
 
 ---
 
@@ -268,8 +269,8 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](./LICENSE) pa
 
 **José Orteha**
 - 🐙 GitHub: [@joseorteha](https://github.com/joseorteha)
-- 💼 LinkedIn: [José Orteha](https://linkedin.com/in/joseorteha)
-- 📧 Email: joseorteha@example.com
+- 💼 LinkedIn: [José Orteha](https://www.linkedin.com/in/jose-orteg4/)
+- 📧 Email: joseorteha@gmail.com
 
 ---
 

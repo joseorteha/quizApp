@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Terminal, { TerminalLine, TerminalPrompt, TerminalOutput, TerminalInput } from './Terminal';
+import Terminal, { TerminalLine, TerminalPrompt, TerminalOutput } from './Terminal';
 import { generateQuizFeedback, generateQuizSet, QUIZ_CATEGORIES, QuizQuestion } from '../utils/huggingface';
 import ModernButton from './ModernButton';
 
@@ -34,7 +34,6 @@ const Quiz: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [terminalHistory, setTerminalHistory] = useState<React.ReactNode[]>([]);
   const [answerRevealed, setAnswerRevealed] = useState(false);
-  const [keyCounter, setKeyCounter] = useState(0);
 
   const MAX_QUESTIONS = 10;
   const currentQuestion = questions[currentQuestionIndex];
@@ -67,7 +66,7 @@ const Quiz: React.FC = () => {
       // Limpiar terminal y mostrar primera pregunta
       clearTerminalAndShowQuestion(0, generatedQuestions[0]);
       
-    } catch (error) {
+    } catch {
       addToTerminalHistory(
         <>
           <TerminalLine>
@@ -96,7 +95,7 @@ const Quiz: React.FC = () => {
         setQuestions(fallbackQuestions);
         setGameState('playing');
         clearTerminalAndShowQuestion(0, fallbackQuestions[0]);
-      } catch (fallbackError) {
+      } catch {
         addToTerminalHistory(
           <TerminalLine>
             <TerminalOutput type="error">
@@ -113,7 +112,6 @@ const Quiz: React.FC = () => {
   // Función para limpiar terminal y mostrar nueva pregunta
   const clearTerminalAndShowQuestion = (questionIndex: number, question: QuizQuestion) => {
     setTerminalHistory([]);
-    setKeyCounter(0);
     
     addToTerminalHistory(
       <>
@@ -251,7 +249,6 @@ const Quiz: React.FC = () => {
     setAnswerRevealed(false);
     setQuestions([]);
     setTerminalHistory([]);
-    setKeyCounter(0);
   };
 
   // Función para agregar contenido al historial del terminal
